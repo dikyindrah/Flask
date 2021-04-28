@@ -1,0 +1,82 @@
+Catatan: 
+
+Apa Itu Flask
+
+Flask adalah kerangka kerja mikro (Microframework) yang 
+digunakan untuk membuat aplikasi web dengan bahasa 
+pemrograman python. Kerangka kerja mikro (Microframework)
+sendiri adalah istilah yang merujuk pada kerangka kerja 
+(Framework) yang mimiliki fitur minimalis. Kata minimalis
+sendiri bukan berarti kerangka kerja ini memiliki kekukrangan
+dari segi fungsionalitas, tetapi lebih kepada kesederhanaan
+dan fleksibilitas. Jadi kerangka kerja ini secara default 
+hanya menyediakan fitur-fitur dasar dan jika menginginkan
+fitur lain kita bisa menambahkanya sebagai ekstensi baru
+kedalam kerangka kerja ini. Ekstensi yang bisa kita 
+tambahakan misalnya seperti pemetaan objek-relasional, validasi
+form, penanganan unggahan, berbagai teknologi otentikasi 
+terbuka, lapisan abstraksi basisdata, dan lain-lain.
+
+Flask dibangun berdasarkan Werkzeug dan Jinja2. 
+
+Werkzeug adalah library yang digunakan untuk membuat 
+aplikasi web WSGI (Web Server Gateway Interface) dengan 
+bahasa pemrograman python, Werkzeug berisi seluruh hal yang 
+bisa kita gunakan untuk urusan backend seperti HTTP routing 
+dan lainya. 
+
+Jinja2 adalah paket dalam bahasa pemrograman python yang 
+digunakan sebagai temaplate engine untuk memformat tampilan 
+halaman. Jinja2 berisi seluruh hal yang bisa kita gunakan
+untuk urusan frontend pada situs web.
+
+Kode berikut menunjukkan aplikasi web sederhana yang 
+dibuat dengan flask untuk mencetak "Hello World!":
+
+Contoh:
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
+
+
+Sejarah Flask
+
+Pada tahun 2004, Pocoo dibentuk sebagai sebuah kelompok 
+penggemar Python internasional. Armin Ronacher dari Pocoo 
+pernah mengatakan kalau Flask dikembangkan secara tidak 
+sengaja:
+
+"Flask itu berasal dari lelucon April Mop, Namun terbukti 
+cukup populer untuk menjadi sebuah framework"
+
+Flask didasarkan pada Werkzeug dan Jinja2, keduanya adalah 
+proyek-proyek Pocoo yang dibuat ketika Ronacher dan Georg 
+Brandl sedang membangun sistem papan buletin yang ditulis 
+dalam Python. Meskipun kurangnya rilis utama, Flask telah 
+menjadi sangat populer di kalangan penggemar Python. Pada 
+pertengahan tahun 2016, Flask menjadi kerangka kerja 
+aplikasi web versi Python yang terpopuler di GitHub.
+
+Pengembang	        Armin Ronacher
+Rilis perdana	    1 April 2010; 11 tahun lalu
+Rilis stabil	    1.1.2 / 3 April 2020; 12 bulan lalu[1]
+Repositori	        github.com/pallets/flask
+Bahasa pemrograman	Python
+Sistem operasi	    Lintas-platform
+Jenis	            Kerangka kerja aplikasi web
+Lisensi	            Lisensi BSD
+Situs web	        https://flask.palletsprojects.com
+
+
+Referensi:
+
+1.  https://id.wikipedia.org/wiki/Flask
+2.  https://www.tutorialspoint.com/flask/index.htm
+3.  https://ar-android.github.io/belajar-flask/
