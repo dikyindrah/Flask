@@ -1,0 +1,41 @@
+Catatan:
+
+Instalasi Flask
+
+Untuk menginstal flask kita bisa menggunakan sistem 
+manajemen paket pada bahasa pemrograman python yang 
+dikenal dengan pip. Dengan menggunakan pip kita bisa 
+menginstal dan mengelola paket perangkat lunak yang 
+kita inginkan.
+
+Buka command prompt atau terminal, kemudian jalankan 
+perintah dibawah ini untuk memulai proses instalasi:
+
+1.  Pertama alangkah baiknya kita update versi pip, 
+    karena ada kemungkinan paket yang akan kita instal
+    mengharuskan kita menggunakan pip dengan versi 
+    terbaru. Untuk mengupdate versi pip gunakan 
+    perintah berikut:
+
+    pip install -U pip
+
+2.  Selanjutnya kita menginstal virtual environment.
+    ve ini kita gunakan untuk menciptakan lingkungan
+    secara terpisah pada setiap proyek yang kita buat.
+    Jadi dengan menggunakan ve proyek yang kita buat 
+    memiliki lingkungan, sumber daya, dan dependensi-
+    nya sendiri. Untuk menginstal virtual environment 
+    gunakan perintah berikut:
+
+    pip install virtualenv
+
+3.  Terakhir adalah menginstal flask. Untuk menginstal 
+    flask gunakan perintah berikut:
+
+    pip install Flask
+
+
+Referensi:
+
+1.  https://ar-android.github.io/belajar-flask/tutorial/
+    installasi-flask.html
