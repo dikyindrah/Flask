@@ -1,0 +1,80 @@
+Catatan:
+
+Instalsi Python
+
+Windows
+
+1.  Kunjungi sistus resmi python https://www.python.org/downloads/.
+2   Download python versi terbaru dan tunggu proses download hingga 
+    selesai.
+3.  Setelah proses download selesai, selanjutnya adalah menginstal 
+    python. Klik dua kali pada file installer python untuk membuka 
+    dan memulai proses insalasi.
+4.  Pada awal instalasi akan muncul menu "Instal Python 3.9.0 
+    (32-bit)", pada bagian bawah menu ini terdapat dua check box, 
+    yang terdiri dari:
+    
+    [✓] Instal launcher for all user (Recomended)
+    [✓] Add python 3.9 to PATH
+
+    jangan lupa untuk menceklis keduanya!..
+
+5.  Jika sudah klik "Instal Now" untuk memulai proses pemasangan 
+    python ke komputer kita.
+6.  Tunggu proses pada menu "Setup Progres" hingga selesai.
+7.  Jika proses telah selesai akan tampil menu "Setup was successful", 
+    pada menu ini jangan lupa untuk klik "Disable path length limit"
+8.  Jika sudah klik close.
+9.  Selanjutnya adalah memeriksa apakah python sudah benar - benar 
+    berhasil terpasang pada komputer kita, caranya dengan mengetikan 
+    perintah berikut pada CLI:
+
+    +------------------+---------------------------------------------+
+    | Perintah         | Fungsi                                      |
+    +------------------+---------------------------------------------+
+    | python --version | Untuk melihat versi python yang telah       |
+    |                  | terpasang pada komputer.                    |
+    | python           | Untuk memanggil atau menjalankan mode       |
+    |                  | interaktif python.                          |
+    +------------------+---------------------------------------------+
+
+10. Jika pyhton benar - benar berhasil terpasang maka salah satu 
+    dari keduanya perintah yang dimasukan sebelumnya akan menampilkan 
+    keluran berupa informasi sesuai fungsi perintah tersebut.
+
+
+Linux
+
+Buka terminal dan lakukan langkah-langkah dibawah ini menggunakan 
+sudo:
+
+1.  Mulailah dengan memperbarui index paket dan menginstal 
+    prasyarat:
+    
+    sudo apt update
+    sudo apt install software-properties-common
+
+2.  Selanjutnya, tambahkan PPA deadsnakes ke sources list Anda:
+    
+    sudo add-apt-repository ppa:deadsnakes/ppa
+
+    Saat diminta tekan Enter untuk melanjutkan.
+    Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+3.  Setelah repositori diaktifkan, instal Python 3.8 dengan 
+    perintah :
+    
+    sudo apt install python3.8
+
+4.  Verifikasi instalasi dengan mengetik:
+    
+    python3.8 --version
+
+
+Referensi:
+
+1.  https://santrikoding.com/cara-install-python-3.8
+    -ubuntu-18.04
+2.  https://www.linuxid.net/31939/tutorial-install-python-
+    3-8-di-ubuntu-18-04/
+    
