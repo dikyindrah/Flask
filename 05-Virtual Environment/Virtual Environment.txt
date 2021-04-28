@@ -1,0 +1,67 @@
+Catatan:
+
+Virtual Environment
+
+Virtual Environment adalah pembuat lingkungan virtual 
+pada proyek yang ditulis dengan bahasa pemrograman python. 
+Ve kita gunakan untuk menciptakan lingkungan secara terpisah 
+pada setiap proyek yang kita buat. Jadi dengan menggunakan 
+ve proyek yang kita buat memiliki lingkungan, sumber daya, 
+dan dependensi-nya sendiri. 
+
+Untuk menginstal virtual environment kita bisa menggunakan 
+perintah pip instal virtualenv. 
+
+Untuk membuat virtual environment kita bisa melakukannya 
+dengan cara berikut:
+
+1.  Buat sebuah direktori pada komputer, direktori ini kita
+    gunakan untuk menyimpan file proyek. Kita bisa menggunakan
+    perintah berikut:
+
+    mkdir new_project
+
+2.  Masuk pada direktori tersebut menggunakn perinth cd.
+
+    cd new_project
+
+3.  Kemudikan ketikan perintah berikut ini untuk membuat 
+    virtual environment pada direktori tersebut.
+
+    virtualenv venv
+
+
+Setelah kita membuat virtual environment pada direktori
+penyimpanan proyek, selanjutnya kita perlu mengaktifkan
+virtual environment tersebut. Caranya adalah sebagai 
+berikut:
+
+1.  Di folder proyek, ketikan perintah berikut untuk
+    mengaktifkan virtual environment:
+
+    [-] Untuk Linux atau OS X.
+
+        venv/bin/activate
+
+    [-] Untuk Windows.
+
+        venv\scripts\activate
+
+2.  Jika virtual environment berhasil diaktifkan maka 
+    akan ada tulisan (venv) sebelum keterangan lokasi
+    direktori.
+
+    (venv) D:\new_project>
+
+3.  Jika virtual environment sudah aktif, selanjutnya 
+    kita bisa melakukan apapun didalam direktori tersebut
+    meisalnya seperti menginstal paket.
+
+Untuk menonaktifkan virtual environment kita bisa menggunakan
+perintah 'deactivate' tanpa tanda kutip.
+
+
+Referensi:
+
+1.  https://www.tutorialspoint.com/flask/flask_
+    environment.htm
