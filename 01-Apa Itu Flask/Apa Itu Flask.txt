@@ -23,7 +23,7 @@ Werkzeug adalah library yang digunakan untuk membuat
 aplikasi web WSGI (Web Server Gateway Interface) dengan 
 bahasa pemrograman python, Werkzeug berisi seluruh hal yang 
 bisa kita gunakan untuk urusan backend seperti HTTP routing 
-dan lainya. 
+, web server, dan lainya. 
 
 Jinja2 adalah paket dalam bahasa pemrograman python yang 
 digunakan sebagai temaplate engine untuk memformat tampilan 
