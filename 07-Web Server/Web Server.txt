@@ -1,0 +1,63 @@
+Catatan:
+
+Web Server
+
+Web Server adalah komputer yang telah terpasang perangkat
+lunak web server dan secara khusus digunakan untuk menyimpan 
+data dari situs web serta untuk mengontrol, menerima, dan 
+mengembalikan permintaan yang diterima dari browser yang 
+ingin mangakses situs web. Contoh web server misalnya seperti
+Apache HTTP Server, Microsoft IIS, NginX, dll.
+
+Flask telah menyediakan web server bawaan yang telah terpasang
+saat kita memasang library flask di komputer kita. Kita bisa
+menggunakan web server bawaan ini untuk menjalankan aplikasi web
+kita secara lokal. Untuk mengaktifkan web server flask, kita
+bisa menggunakan dua cara. Cara pertama melalui terminal atau 
+command prompt dan cara kedua melalu kode program.
+
+Cara pertama:
+
+[-] Masuk ke direktori aplikasi web yang sedang kita buat.
+[-] Ketikan perintah berikut untuk mengaktifkan web server.
+
+    set FLASK_APP=app.py
+
+    Perintah ini digunakan untuk mengubah kode program kita 
+    ke bahasa komputer.
+
+    set FLASK_DEBUG=1
+    
+    Perintah ini digunakan untuk mengaktifkan mode debug, 
+    fungsinya adalah untuk merestart web server secara 
+    otomatis jika terdapat perubahan yang terjadi pada 
+    file program.
+
+    flask run
+
+    Perintah ini digunakan untuk mengaktifkan web server flask.
+
+    CTRL+C
+
+    Shortcut ini digunakan untuk menonaktifkan web server flask.
+
+
+Cara kedua:
+
+[-] Pada kode program aplikasi web, tulis pernyataan berikut:
+
+    if __name__ == '__main__':
+    app.run()
+
+    Pernyataan ini digunakan untuk mengaktifkan web server pada 
+    file program saat ini.
+
+    app.run(debug=True)
+    
+    Pernyataan ini digunakan untuk mengaktifkan web server beserta
+    mode debug pada file program saat ini.    
+
+
+Referensi:
+
+1.  https://www.tutorialspoint.com/flask/flask_application.htm
