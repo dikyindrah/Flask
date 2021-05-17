@@ -1,0 +1,74 @@
+Catatan:
+
+Struktur Dasar Flask adalah bagian-bagian yang harus 
+kita definisikan saat membuat aplikasi web dengan Flask. 
+Agar browser dapat membaca dan menampilkan aplikasi yang 
+kita buat dengan flask, maka di butuhkan struktur dasar 
+yang masing-masing bagian memiliki fungsi yang berbeda-beda
+
+Setiap halaman yang ditulis menggunakan flask, Setidaknya
+harus memiliki struktur berikut:
+
+Contoh:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+@app.route('/index')
+def hello_world():
+    return 'Hello World'
+
+if __name__ == '__main__':
+    app.run()
+
+
+Keterangan:
+
+from flask import Flask
+
+Setiap kali kita ingin membuat aplikasi web dengan flask, 
+kita harus mengimpor paket atau class Flask dari library flask. 
+Tujuanya adalah agar kita bisa mengakses seluruh modul dan 
+fungsi untuk membuat aplikasi web. 
+
+
+app = Flask(__name__)
+
+Pernyataan di atas digunakan untuk menentukan titik awal
+aplikasi kita memuat sumber daya, misalnya seperti file 
+template. Pada pernyataan tersebut kita mendefinisikan
+konstruktor Flask() dengan variabel __name__ sebagai argumen 
+yang mendefinisikan nama file program saat ini, kemudian
+kita menyimpanya kedalam variabel bernama app. Ini artinya 
+kita menentukan file program saat ini sebagai titik awal 
+aplikasi memuat sumber daya.
+
+
+@app.route('/')
+@app.route('/index')
+def hello_world():
+    return 'Hello World'
+
+Fungsi route() dari class Flask adalah dekorator, ini
+mendefinisikan url yang akan digunakan untuk mememanggil 
+fungsi dibawahnya. Pada pernyataan diatas kita mendefinisikan
+'/' dan '/index' sebagai url untuk mengakses fungsi 
+hello_world(). Ini artinya fungsi hello_world() akan dibaca 
+dan dieksekusi jika kita mengakses url http://127.0.0.1:5000/ 
+atau http://127.0.0.1:5000/index pada browser. 
+http://127.0.0.1:5000 adalah alamat web server lokal bawaan 
+flask.
+
+
+if __name__ == '__main__':
+    app.run()
+
+Pernyataan diatas digunakan untuk mendefinisikan program
+utama yang akan menjalanakan aplikasi web.
+
+
+Referensi:
+
+1.  https://www.tutorialspoint.com/flask/flask_application.htm
