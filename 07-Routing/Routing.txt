@@ -55,8 +55,11 @@ if __name__ == '__main__':
 
 Routing Dinamis (Dinamic Routing)
 
-Routing statis adalah teknik routing yang mendefinisikan url
-yang memiliki sifat berubah-ubah.
+Routing dinamis adalah teknik routing yang mendefinisikan 
+url yang memiliki sifat berubah-ubah. Cara membuatnya adalah
+dengan menuliskan variabel didalam sepasang tanda kurung 
+lancip <variabel> di URL. Variabel pada url ini akan
+dilewatkan sebagai argumen pada funsi yang terkait dengannya.
 
 Contoh:
 
