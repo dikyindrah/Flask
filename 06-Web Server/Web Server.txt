@@ -46,16 +46,55 @@ Cara kedua:
 
 [-] Pada kode program aplikasi web, tulis pernyataan berikut:
 
+    from flask import Flask
+
+    app = Flask(__name__)
+
+    @app.route('/index')
+    def index():
+        return 'ini adalah halaman index'
+
+    if __name__ == '__main__':
+        app.run(host, port, debug, option)
+
+
+    Keterangan:
+
     if __name__ == '__main__':
     app.run()
 
     Pernyataan ini digunakan untuk mengaktifkan web server pada 
     file program saat ini.
 
+    app.run(host='0.0.0.0')
+
+    Pernyataan ini digunakan untuk menentukan ip host atau ip
+    server yang akan kita gunakan. Secara default ip host ini 
+    adalah http://127.0.0.1 dengan port 5000, namun kita juga 
+    bisa mengatur dengan alamat http://0.0.0.0 menggunakan port
+    yang bisa kita sesuaikan agar web server di komputer kita 
+    bisa di akses secara eksternal.
+
+    app.run(port=8000)
+
+    Pernyataan ini digunakan untuk menentukan port yang akan 
+    digunakan web server. Secara default port yang digunakan 
+    adalah 5000, namun kita juga bisa menyesuaikannya dengan 
+    port yang kita inginkan.
+
     app.run(debug=True)
     
     Pernyataan ini digunakan untuk mengaktifkan web server beserta
     mode debug pada file program saat ini.    
+
+    app.run(option)
+
+    Pernyataan ini digunakan untuk meneruskan ke server Werkzeug 
+    yang mendasarinya.
+
+
+    Ke empat parameter ini bisa kita gunakan salah satu atau 
+    seluruhnya sesuai dengan kebutuhan kita.
 
 
 Referensi:
