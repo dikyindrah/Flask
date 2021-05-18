@@ -1,0 +1,80 @@
+Catatan:
+
+Routing
+
+Dengan routing kita bisa mengatur URL yang akan digunakan 
+untuk menagses sumber daya tertentu, misalnya sebuah fungsi. 
+
+Contoh:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+# Routing ke url http://127.0.0.1:5000/index
+@app.route('/index')
+def index():
+    return 'ini adalah halaman index'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+Fungsi route() dari class Flask adalah dekorator, ini
+mendefinisikan url yang akan digunakan untuk mememanggil 
+fungsi dibawahnya. Pada pernyataan diatas kita mendefinisikan
+'/index' sebagai url untuk mengakses fungsi hello_world(). 
+Ini artinya fungsi hello_world() akan dibaca dan dieksekusi 
+jika kita mengakses url http://127.0.0.1:5000/index pada browser. 
+http://127.0.0.1:5000 adalah alamat web server lokal bawaan 
+flask.
+
+Pada web development umumnya kita akan mengenal dua jenis 
+routing, yaitu routing statis (static routing ) dan routing
+dinamis (dinamic routing).
+
+Routing Statis (Static Routing)
+
+Routing statis adalah teknik routing yang mendefinisikan url
+yang memiliki sifat tetap.
+
+Contoh:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+# Routing Statis (Static Routing)
+@app.route('/index')
+def index():
+    return 'ini adalah halaman index'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+Routing Dinamis (Dinamic Routing)
+
+Routing statis adalah teknik routing yang mendefinisikan url
+yang memiliki sifat berubah-ubah.
+
+Contoh:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+# Routing Dinamis (Dinamic Routing)
+@app.route('/profile/<username>')
+def index(username):
+    return 'ini adalah halaman profile %s' %username
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+Referensi:
+
+1.  https://ar-android.github.io/belajar-flask/
+    tutorial/flask-routing.html
+2.  https://www.tutorialspoint.com/flask/flask_routing.htm
