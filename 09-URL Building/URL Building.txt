@@ -1,0 +1,46 @@
+Catatan:
+
+URL Building
+
+Kita bisa menggunakan fungsi url_for() untuk membuat URL 
+secara dinamis pada fungsi tertentu. Argumen pada fungsi
+url_for() adalah endpoint dan **value. Argumen endpoint
+bisa kita definisikan dengan nama fungsi dan argumen 
+**value bisa kita definisikan dengan argumen pada nama
+fungsi yang di definisikan.
+
+Contoh:
+
+from flask import Flask, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route('/admin')
+def hello_admin():
+    return 'Hello Admin'
+
+@app.route('/guest/<guest>')
+def hello_guest(guest):
+    return 'Hello %s as Guest' %guest
+
+@app.route('/user/<name>')
+def user(name):
+    if name == 'admin':
+        return redirect(url_for('hello_admin'))
+    else:
+        return redirect(url_for('hello_guest', guest=name))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+Pada kode program diatas, fungsi user(name) memeriksa apakah
+argumen yang diterima adalah 'admin', jika benar maka akan 
+di alihkan ke fungsi hello_admin() dan jika salah maka akan
+di alihkan ke fungsi hello_guest(guest), kedua aksi ini di 
+eksekusi menggunakan fungsi redirect() dan url_for().
+
+
+Referensi:
+
+1.  https://www.tutorialspoint.com/flask/flask_url_building.htm
