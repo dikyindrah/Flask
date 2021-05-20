@@ -1,0 +1,251 @@
+Catatan:
+
+HTTP Request Methods
+
+Internet terdiri dari sekumpulan sumber daya yang dihosting 
+di berbagai web server. Untuk mengakses sumber daya ini, 
+pengguna menggunakan berbagai web browser yang mampu mengirim 
+permintaan ke server dan menampilkan informasi darinya.
+
+HTTP adalah protokol yang digunakan dalam permintaan dan 
+tanggapan untuk komunikasi yang efektif antara klien dan 
+server.
+
+Permintaan yang dikirim oleh klien ke server dikenal 
+sebagai HTTP Request. Saat permintaan ini dikirim, klien 
+dapat menggunakan berbagai metode, yang dikenal sebagai
+HTTP Request Methods.
+
+HTTP Request Methods adalah metode yang digunakan untuk 
+menyediakan permintaan dan menentukan operasi apa yang akan
+dilakukan oleh klien dan server. 
+
+Contoh: Klien (browser) mengirimkan permintaan HTTP ke 
+server, kemudian server memeberikan tanggapan ke klien. 
+Tanggapan berisi informasi status tentang permintaan dan 
+mungkin juga berisi konten yang diminta.
+
+Sejumlah metode yang bisa digunakan yaitu (GET, POST, PUT, 
+HEAD, DELETE, TRACE, OPTIONS, dan CONNECT). Dari Sejumlah
+metode tersebut hanya dua yang paling umum digunakan yaitu
+GET dan POST.
+
+
+GET
+
+Metode GET adalah salah satu metode HTTP yang paling umum 
+digunakan. Biasanya diterapkan untuk meminta data 
+tertentu dari web server dengan menetapkan parameter 
+sebagai string queri (pasangan key dan value) di bagian 
+URL permintaan.
+
+Contoh:
+
+/test/demo_form.php?key1=value1 
+/test/demo_form.php?key1=value1&key2=value2 
+
+
+Berbagai karakteristik metode GET adalah:
+
+[-] Permintaan GET dapat ditandai seperti yang muncul di URL.
+[-] Permintaan GET dapat di-cache.
+[-] Permintaan GET disimpan dalam riwayat browser jika 
+    dijalankan menggunakan browser web.
+[-] Ada batasan panjang karakter (maksimum 2048 karakter) untuk 
+    metode ini seperti yang muncul di URL.
+[-] Metode GET tidak dapat digunakan untuk mengirim data biner 
+    seperti gambar dan dokumen Word.
+[-] Data hanya dapat diambil dari permintaan yang menggunakan 
+    metode GET dan tidak memiliki efek lain.
+[-] Saat mengkomunikasikan data sensitif seperti kredensial 
+    login, permintaan GET tidak boleh digunakan seperti yang 
+    muncul di URL, sehingga kurang aman.
+[-] Karena permintaan GET hanya meminta data dan tidak mengubah 
+    sumber daya apa pun, ini dianggap sebagai metode yang aman 
+    dan ideal untuk hanya meminta data.
+
+
+Contoh: Cari buah jeruk
+
+[-] search.html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search</title>
+    </head>
+    <body>
+        <form action="http://127.0.0.1:5000/search" method="GET">
+            <h3>Cari buah 'jeruk'</h3>
+            <input type="text" name="buah">
+            <input type="submit" value="cari">
+        </form>
+    </body>
+</html>
+
+
+[-] app.py
+
+from flask import Flask, request, redirect, url_for
+app = Flask(__name__)
+
+@app.route('/index')
+def index():
+    return 'Ini adalah halaman index'
+
+@app.route('/search', methods=['GET','POST'])
+def search():
+    if request.method == 'GET':
+        # Pernyataan untuk satu query
+        buah = request.args.get('buah')
+        if buah == 'jeruk':
+            return 'Hasil pencarian: buah %s ditemukan.' %buah
+        else:
+            return 'Hasil pencarian: buah %s tidak ditemukan.' %buah
+
+        # # Pernyataan untuk lebih dari satu query
+        # # Buka url http://127.0.0.1:5000/search?buah=jeruk&sayur=brokoli
+        # buah = request.args.get('buah')
+        # sayur = request.args.get('sayur')
+        # return 'Hasil pencarian: buah %s dan sayur %s ditemukan.' %(buah, sayur)
+    else:
+        return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+Contoh lain dari metode GET adalah pencarian Google, di mana 
+parameter pencarian muncul di URL ketika pengguna mencari kata
+kunci. Ini membantu menampilkan hasil pencarian pada halaman 
+yang berbeda menggunakan pagination, dan masing-masing URL 
+halaman juga dapat di-bookmark untuk digunakan nanti.
+
+
+POST
+
+Metode POST adalah metode HTTP yang umum digunakan untuk 
+mengirimkan data formulir HTML ke web server.
+
+Berbagai karakteristik metode POST adalah:
+
+[-] Permintaan POST tidak dapat ditandai karena tidak 
+    muncul di URL.
+[-] Permintaan POST tidak di-cache.
+[-] Permintaan POST tidak disimpan sebagai riwayat oleh 
+    web browser.
+[-] Tidak ada batasan jumlah data yang akan dikirim 
+    dalam permintaan POST.
+[-] Metode POST dapat digunakan untuk mengirim ASCII 
+    serta data biner.
+[-] Saat mengkomunikasikan data sensitif, seperti saat 
+    mengirimkan formulir HTML, permintaan POST harus digunakan.
+[-] Data yang dikirim dengan metode POST melewati header 
+    HTTP, jadi keamanan bergantung pada protokol HTTP. Dengan 
+    menggunakan HTTP aman (HTTPS), Anda dapat memastikan bahwa 
+    informasi Anda terlindungi.
+
+Contoh: Halaman Login
+
+[-] Login.html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <form action="http://127.0.0.1:5000/login" method="POST">
+            <p>Masukan Username 'dikyindrah' dan Password '12345'</p>
+            <p>Username:<input type="text" name="un"></p>
+            <p>Password:<input type="password" name="pw"></p>
+            <input type="submit" value="login">
+        </form>
+    </body>
+</html>
+
+
+[-] app.py
+
+from flask import Flask, request, redirect, url_for
+app = Flask(__name__)
+
+@app.route('/index')
+def index():
+    return 'Ini adalah halaman index'
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['un']
+        password = request.form['pw']
+        if username == 'dikyindrah' and password == '12345':
+            return 'Login sukses, selamat datang %s' %username
+        elif username == 'dikyindrah' and password != '12345':
+            return 'Login gagal, password salah!'
+        else:
+            return 'Login gagal, username dan password tidak terdaftar.'
+    else:
+        return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+PUT
+
+Metode PUT digunakan untuk memperbarui sumber daya yang ada 
+dengan konten yang diunggah atau untuk membuat sumber daya 
+baru jika sumber daya target tidak ditemukan. Perbedaan antara 
+POST dan PUT adalah bahwa permintaan PUT bersifat statis, 
+yang berarti memanggil metode PUT yang sama beberapa kali tidak 
+akan menghasilkan hasil yang berbeda karena akan memperbarui 
+konten yang sama setiap kali sementara Permintaan POST akan 
+membuat konten baru setiap saat.
+
+
+HEAD
+
+Metode HEAD hampir identik dengan metode GET, tetapi satu-satunya 
+perbedaan adalah metode ini tidak akan mengembalikan isi respons 
+apa pun. Misalnya, jika GET / pengguna mengembalikan catatan 
+pengguna, maka HEAD / pengguna membuat permintaan yang sama, 
+tetapi tidak akan mengembalikan catatan pengguna mana pun.
+
+Permintaan HEAD menjadi berguna untuk menguji apakah permintaan 
+GET akan benar-benar merespons sebelum membuat permintaan GET 
+yang sebenarnya. Terkadang ini akan berguna dalam beberapa 
+situasi, seperti memeriksa respons URL sebelum mengunduh file.
+
+
+DELETE
+
+Metode DELETE digunakan untuk menghapus sumber daya tertentu.
+
+
+TRACE
+
+Metode TRACE digunakan untuk melakukan loop-balik pesan, yang 
+menguji jalur untuk sumber daya target. Ini berguna untuk 
+tujuan debugging.
+
+
+OPTIONS
+
+Metode OPTIONS digunakan untuk menjelaskan preferensi komunikasi 
+untuk sumber daya target apapun.
+
+
+CONNECT
+
+Metode CONNECT digunakan untuk membuat terowongan ke server yang 
+dikenali oleh URI tertentu.
+
+
+Referensi:
+
+1.  https://www.w3schools.in/http-tutorial/http
+    -request-methods/
+2.  https://www.w3schools.com/tags/ref_httpmethods.asp
+3.  https://ar-android.github.io/belajar-flask/tutorial/
+    flask-routing.html
