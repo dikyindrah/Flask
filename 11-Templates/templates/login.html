@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login</title>
+    </head>
+    <body>
+        {% if username == 'admin' %}
+            <p>welcome admin</p>
+        {% else %}
+            <p>welcome {{ username }}</p>
+        {% endif %}
+    </body>
+</html>

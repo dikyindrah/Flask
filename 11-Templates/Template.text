@@ -1,0 +1,183 @@
+Catatan:
+
+Templates
+
+Template adalah dokumen atau file yang sudah 
+memiliki format didalamnya. Template umumnya 
+digunakan sebagai titik awal pembuatan website 
+atau aplikasi tertentu. 
+
+Didalam flask terdapat Jinja2 yang memungkinkan 
+kita untuk bisa merender seluruh elemen html 
+pada kode program python sehingga kita bisa 
+menampilkan tampilan website secara langsung.
+
+Contoh:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/index')
+def index():
+    return '''
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>my tamplate</title>
+        </head>
+        <body>
+            <h1>this is my template</h1>
+        </body>
+    </html>
+    '''
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+Pada kode program diatas, kita bisa merender elemen
+html, namun akan kurang baik jika kita menulisnya 
+didalam satu dokumen yang sama.
+
+Oleh karena itu pada flask, template digunakan untuk 
+memisahkan dan menghubungkan logikan program dengan 
+tampilan visual website.
+
+Kita bisa menggunakan fungsi render_template() yang
+disediakan flask untuk merender template. 
+
+Sebelum menggunakan render_template(), kita perlu
+membuat direktori untuk menyimpanan file html bernama 
+"templates". File html yang ada di dalam direktori
+tersebut nantinya akan kita gunakan sebagai template. 
+Direktori "templates" kita buat pada satu tempat yang
+sama dengan file python.
+
+Contoh:
+
+-mywebsite
+ --templates
+   ---index.html
+ --app.py
+
+
+Setelah kita membuat direktori penyimpanan template,
+selanjutnya kita bisa menulis kode program dan 
+mendefinisikan fungsi render_template() di dalamnya.
+
+Contoh:
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+Template engine Jinja2 pada flask memungkinkan kita 
+untuk dapat menulis kode program python didalam dokumen
+html.
+
+Sebelum menulis kode program python didalam dokumen
+htm, kita perlu menambahkan delimeter atau pembatas.
+Template engine Jinja2 pada flask menyediakan beberapa
+delimeter yang bisa kita gunakan.
+
+[-] {% ... %} - Untuk menulis pernyataan
+[-] {{ ... }} - Untuk menampilkan output
+[-] {# ... #} - Untuk membuat komentar
+[-]  # ... ## - Untuk pernyataan baris
+
+Untuk cara penggunaanya pada dokumen html, kita hanya 
+perlu membungkus kode program dengan delimeter tersebut.
+
+file .py
+
+Contoh:
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/login/<username>')
+def login(username):
+    return render_template('login.html', username=username)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+file .html
+
+Contoh:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login</title>
+    </head>
+    <body>
+        {% if username == 'admin' %}
+            <p>welcome admin</p>
+        {% else %}
+            <p>welcome {{ username }}</p>
+        {% endif %}
+    </body>
+</html>
+
+
+Kita juga bisa menggunakan perulangan pada file html.
+
+file .py
+
+Contoh:
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/show_data')
+def show_data():
+    data = ['Diky Indra H', 'Ardi Wibowo', 'Tubagus M Bagas']
+    return render_template('show_data.html', total_data=len(data), data=data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+file .html
+
+Contoh:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Show Data</title>
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(total_data) %}
+                <tr>
+                    <td>{{ i+1 }}</td>
+                    <td>{{ data[i] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
+
+
